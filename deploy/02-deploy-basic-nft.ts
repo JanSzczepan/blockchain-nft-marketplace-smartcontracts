@@ -28,5 +28,5 @@ const deployBasicNft: DeployFunction = async function (
    }
 }
 
-deployBasicNft.tags = ['all', 'nftmarketplace']
+deployBasicNft.tags = ['all', 'basicnft']
 export default deployBasicNft
