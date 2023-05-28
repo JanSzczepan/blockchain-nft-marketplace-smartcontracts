@@ -1,13 +1,10 @@
 import { DeployFunction } from 'hardhat-deploy/dist/types'
-import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import fs from 'fs-extra'
 import { frontEndContractAddressesFile } from '../helper-hardhat-config'
 import { ethers, network } from 'hardhat'
 import { NftMarketplace } from '../typechain-types'
 
-const updateFrontend: DeployFunction = async function (
-   hre: HardhatRuntimeEnvironment
-) {
+const updateFrontend: DeployFunction = async function () {
    if (process.env.UPDATE_FRONT_END) {
       await writeContractAddress()
    }

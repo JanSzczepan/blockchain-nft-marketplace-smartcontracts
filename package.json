@@ -1,4 +1,7 @@
 {
+   "scripts": {
+      "mint-and-list-item": "hh run ./scripts/mint-and-list-item.ts --network localhost"
+   },
    "devDependencies": {
       "@nomicfoundation/hardhat-toolbox": "^2.0.2",
       "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
