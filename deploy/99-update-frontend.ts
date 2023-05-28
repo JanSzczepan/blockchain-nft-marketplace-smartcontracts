@@ -1,12 +1,16 @@
 import { DeployFunction } from 'hardhat-deploy/dist/types'
 import fs from 'fs-extra'
-import { frontEndContractAddressesFile } from '../helper-hardhat-config'
+import {
+   abiFilesPath,
+   frontEndContractAddressesFile,
+} from '../helper-hardhat-config'
 import { ethers, network } from 'hardhat'
-import { NftMarketplace } from '../typechain-types'
+import { BasicNft, NftMarketplace } from '../typechain-types'
 
 const updateFrontend: DeployFunction = async function () {
    if (process.env.UPDATE_FRONT_END) {
       await writeContractAddress()
+      await writeAbis()
    }
 }
 
@@ -38,6 +42,26 @@ async function writeContractAddress() {
    )
 
    console.log('Contract adress written to frontend!')
+}
+
+async function writeAbis() {
+   console.log('Writing contract ABIs to frontend...')
+
+   const nftMarketplace: NftMarketplace = await ethers.getContract(
+      'NftMarketplace'
+   )
+   const basicNft: BasicNft = await ethers.getContract('BasicNft')
+
+   fs.writeFileSync(
+      `${abiFilesPath}/NftMarketplaceABI.json`,
+      nftMarketplace.interface.format(ethers.utils.FormatTypes.json).toString()
+   )
+   fs.writeFileSync(
+      `${abiFilesPath}/BasicNftABI.json`,
+      basicNft.interface.format(ethers.utils.FormatTypes.json).toString()
+   )
+
+   console.log('Contract ABIs written to frontend!')
 }
 
 updateFrontend.tags = ['all', 'frontend']

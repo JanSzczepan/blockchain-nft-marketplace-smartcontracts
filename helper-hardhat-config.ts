@@ -23,3 +23,4 @@ export const networkConfig: networkConfigInfo = {
 export const developmentChains = ['hardhat', 'localhost']
 export const frontEndContractAddressesFile =
    '../frontend/constants/networkMapping.json'
+export const abiFilesPath = '../frontend/constants'
