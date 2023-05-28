@@ -2,7 +2,8 @@
    "scripts": {
       "mint-and-list-item": "hh run ./scripts/mint-and-list-item.ts --network localhost",
       "cancel-item": "hh run ./scripts/cancel-item.ts --network localhost",
-      "buy-item": "hh run ./scripts/buy-item.ts --network localhost"
+      "buy-item": "hh run ./scripts/buy-item.ts --network localhost",
+      "mine": "hh run ./scripts/mine.ts --network localhost"
    },
    "devDependencies": {
       "@nomicfoundation/hardhat-toolbox": "^2.0.2",
